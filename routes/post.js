@@ -7,7 +7,8 @@ const goodBoyUrl = 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d
 router.post('/', express.json(), async (req, res, next) => {
   const { body } = req;
 
-  console.log(req);
+  console.log(req.headers);
+  console.log(req.body);
 
   // // if (body.NumMedia > 0) {
     // message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
