@@ -26,7 +26,7 @@ router.post('/', async (req, res, next) => {
   if (body.NumMedia > 0) {
     for (let i = 0; i < body.NumMedia; i++) {
       const url = body[`MediaUrl${i}`]
-      const accessibleUrl = "https://" + username + ":" + password + url.slice(8);
+      const accessibleUrl = "https://" + username + ":" + password + "@" + url.slice(8);
       images.push(accessibleUrl);
 
       console.log(accessibleUrl);
