@@ -9,12 +9,12 @@ router.post('/', async (req, res, next) => {
 
   let message;
 
-  if (body.NumMedia > 0) {
+  // if (body.NumMedia > 0) {
     message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
     message.media(goodBoyUrl);
-  } else {
-    message = new MessagingResponse().message('Send us an image!');
-  }
+  // } else {
+    // message = new MessagingResponse().message('Send us an image!');
+  // }
 
   res.set('Content-Type', 'text/xml');
   res.send(message.toString()).status(200);
