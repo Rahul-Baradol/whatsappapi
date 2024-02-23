@@ -7,13 +7,13 @@ const goodBoyUrl = 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d
 router.post('/', async (req, res, next) => {
   const { body } = req;
 
-  let message;
+  console.log(body);
 
-  // if (body.NumMedia > 0) {
-    message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
-    message.media(goodBoyUrl);
+  // // if (body.NumMedia > 0) {
+  //   message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
+  //   message.media(goodBoyUrl);
   // } else {
-    // message = new MessagingResponse().message('Send us an image!');
+    message = new MessagingResponse().message('Send us an image!');
   // }
 
   res.set('Content-Type', 'text/xml');
