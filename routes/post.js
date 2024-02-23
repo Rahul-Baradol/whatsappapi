@@ -23,16 +23,11 @@ router.post('/', async (req, res, next) => {
     const MessageSid = body.MessageSid;
     const media = body.MediaUrl0;  
 
-    // const m = twilio
-    //   .api.accounts(username)
-    //   .messages(MessageSid)
-    //   .media(media);
+    const m = client.messages(MessageSid)
+    .media(media)
+    .fetch()
 
-    console.log(MessageSid);
-    console.log(media);
-    console.log(username);
-    console.log(password);
-
+    console.log(m);
     message = new MessagingResponse().message('Got an image!');
   } else {
     message = new MessagingResponse().message('Send us an image!');
