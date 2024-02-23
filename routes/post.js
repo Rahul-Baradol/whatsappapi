@@ -19,16 +19,18 @@ const twilio = new twiliomain.Twilio(username, password);
 router.post('/', async (req, res, next) => {
   const { body } = req;
 
+  console.log(body);
+
   if (body.NumMedia > 0) {
-    const MessageSid = body.MessageSid;
-    const media = body.MediaUrl0;  
+    // const MessageSid = body.MessageSid;
+    // const media = body.MediaUrl0;  
 
-    const m = twilio.messages(MessageSid)
-    .media(media)
-    .fetch()
+    // const m = twilio.messages(MessageSid)
+    // .media(media)
+    // .fetch()
 
-    console.log(m);
-    message = new MessagingResponse().message('Got an image!');
+    // console.log(m);
+    // message = new MessagingResponse().message('Got an image!');
   } else {
     message = new MessagingResponse().message('Send us an image!');
   }
