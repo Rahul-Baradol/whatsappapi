@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express();
 const postRouter = require('./routes/post');
 const bodyParser = require('body-parser');
+const Twilio = require('twilio');
 
 require('dotenv').config({
    path: ".env.local"
