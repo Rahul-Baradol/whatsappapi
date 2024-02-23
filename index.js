@@ -7,7 +7,7 @@ const xmlparser = require('express-xml-bodyparser');
 
 // Middleware to parse JSON bodies
 app.use(cors())
-// app.use(express.json());
+app.use(express.json());
 app.use(xmlparser({
    trim: true, // Trim whitespace from text nodes
    explicitArray: false, // Don't explicitly return node lists as arrays
