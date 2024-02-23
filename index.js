@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 // Custom router handling the /message endpoint
-app.use('/message', postRouter);
+app.use('/message', express.json(), postRouter);
 
 // Start the server
 const PORT = 8000;
