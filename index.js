@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const postRouter = require('./routes/post');
 
 // Middleware to parse JSON bodies
+app.use(cors())
 app.use(express.json());
 
 // Custom router handling the /message endpoint
@@ -20,6 +22,8 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+
+module.exports = app
 
 // // Download the helper library from https://www.twilio.com/docs/node/install
 // // Find your Account SID and Auth Token at twilio.com/console
