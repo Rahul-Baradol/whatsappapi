@@ -27,6 +27,7 @@ router.post('/', async (req, res, next) => {
       .api.accounts(username)
       .messages(MessageSid)
       .media(media);
+
     console.log(m);
 
     message = new MessagingResponse().message('Got an image!');
