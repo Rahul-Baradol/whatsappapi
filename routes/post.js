@@ -19,10 +19,21 @@ const twilio = new twiliomain.Twilio(username, password);
 router.post('/', async (req, res, next) => {
   const { body } = req;
 
-  console.log(body);
+  // console.log(body);
+
+  let images = []
 
   if (body.NumMedia > 0) {
-    message = new MessagingResponse().message('Got an image!');
+    for (let i = 0; i < body.NumMedia; i++) {
+      const url = body[`MediaUrl${i}`]
+      const accessibleUrl = "https://" + username + ":" + password + url.slice(8);
+      images.push(accessibleUrl);
+
+      console.log(accessibleUrl);
+
+      message = new MessagingResponse().message("Got the image!");
+      message.media(goodBoyUrl);
+    }
   } else {
     message = new MessagingResponse().message('Send us an image!');
   }
