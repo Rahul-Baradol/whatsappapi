@@ -10,6 +10,7 @@ router.post('/', async (req, res, next) => {
   // console.log(req.headers);
   // console.log(req.body);
   console.log(req);
+  req.parser['4']()
 
   // // if (body.NumMedia > 0) {
     // message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
