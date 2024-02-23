@@ -4,6 +4,11 @@ const app = express();
 const postRouter = require('./routes/post');
 const bodyParser = require('body-parser');
 
+require('dotenv').config({
+   path: ".env.local"
+})
+
+const twilioclient = new Twilio(process.env.twilioAccountSid, process.env.twilioAuthToken);
 
 // Middleware to parse JSON bodies
 app.use(cors())
