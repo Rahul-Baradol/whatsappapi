@@ -32,7 +32,7 @@ router.post('/', async (req, res, next) => {
       console.log(accessibleUrl);
 
       message = new MessagingResponse().message("Got the image!");
-      message.media(goodBoyUrl);
+      message.media(accessibleUrl);
     }
   } else {
     message = new MessagingResponse().message('Send us an image!');
