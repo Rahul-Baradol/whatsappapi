@@ -7,6 +7,7 @@ const postRouter = require('./routes/post');
 app.use(cors())
 app.use(express.json());
 
+
 // Custom router handling the /message endpoint
 app.use('/message', postRouter);
 
