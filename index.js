@@ -2,14 +2,19 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const postRouter = require('./routes/post');
+// const bodyParserXml = require('body-parser-xml');
+const xmlparser = require('express-xml-bodyparser');
 
 // Middleware to parse JSON bodies
 app.use(cors())
-app.use(express.json());
-
+// app.use(express.json());
+app.use(xmlparser({
+   trim: true, // Trim whitespace from text nodes
+   explicitArray: false, // Don't explicitly return node lists as arrays
+}));
 
 // Custom router handling the /message endpoint
-app.use('/message', express.json(), postRouter);
+app.use('/message', postRouter);
 
 // Start the server
 const PORT = 8000;
@@ -21,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+   console.log(`Server is listening on port ${PORT}`);
 });
 
 module.exports = app
