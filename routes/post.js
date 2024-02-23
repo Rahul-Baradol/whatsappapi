@@ -4,7 +4,7 @@ const { MessagingResponse } = require('twilio').twiml;
 const router = express.Router();
 const goodBoyUrl = 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   const { body } = req;
 
   let message;
@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
 
   res.set('Content-Type', 'text/xml');
   res.send(message.toString()).status(200);
+  next();
 });
 
 module.exports = router;
