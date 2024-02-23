@@ -30,6 +30,8 @@ router.post('/', async (req, res, next) => {
 
     console.log(MessageSid);
     console.log(media);
+    console.log(username);
+    console.log(password);
 
     message = new MessagingResponse().message('Got an image!');
   } else {
