@@ -22,15 +22,7 @@ router.post('/', async (req, res, next) => {
   console.log(body);
 
   if (body.NumMedia > 0) {
-    // const MessageSid = body.MessageSid;
-    // const media = body.MediaUrl0;  
-
-    // const m = twilio.messages(MessageSid)
-    // .media(media)
-    // .fetch()
-
-    // console.log(m);
-    // message = new MessagingResponse().message('Got an image!');
+    message = new MessagingResponse().message('Got an image!');
   } else {
     message = new MessagingResponse().message('Send us an image!');
   }
