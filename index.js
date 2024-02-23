@@ -2,16 +2,13 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const postRouter = require('./routes/post');
-// const bodyParserXml = require('body-parser-xml');
-const xmlparser = require('express-xml-bodyparser');
+
 
 // Middleware to parse JSON bodies
 app.use(cors())
-app.use(express.json());
-app.use(xmlparser({
-   trim: true, // Trim whitespace from text nodes
-   explicitArray: false, // Don't explicitly return node lists as arrays
-}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Custom router handling the /message endpoint
 app.use('/message', postRouter);
