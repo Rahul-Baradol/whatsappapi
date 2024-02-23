@@ -11,7 +11,7 @@ router.post('/', async (req, res, next) => {
 
   if (body.NumMedia > 0) {
     message = new MessagingResponse().message("Thanks for the image! Here's one for you!");
-    message.media(body.MediaUrl0);
+    // message.media(body.MediaUrl0);
   } else {
     message = new MessagingResponse().message('Send us an image!');
   }
