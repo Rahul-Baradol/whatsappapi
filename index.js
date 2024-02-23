@@ -1,20 +1,36 @@
-// Download the helper library from https://www.twilio.com/docs/node/install
-// Find your Account SID and Auth Token at twilio.com/console
-// and set the environment variables. See http://twil.io/secure
-require('dotenv').config({
-   path: ".env.local"
-})
+const express = require('express');
+const app = express();
+const postRouter = require('./routes/post');
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const phoneno = process.env.PHONENO
+// Middleware to parse JSON bodies
+app.use(express.json());
 
-const client = require('twilio')(accountSid, authToken);
+// Custom router handling the /message endpoint
+app.use('/message', postRouter);
 
-client.messages
-      .create({
-         from: 'whatsapp:+14155238886',
-         body: 'Hello, there!',
-         to: 'whatsapp:+919880050970'
-       })
-      .then(message => console.log(message.sid));
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
+
+// // Download the helper library from https://www.twilio.com/docs/node/install
+// // Find your Account SID and Auth Token at twilio.com/console
+// // and set the environment variables. See http://twil.io/secure
+// require('dotenv').config({
+//    path: ".env.local"
+// })
+
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const phoneno = process.env.PHONENO
+
+// const client = require('twilio')(accountSid, authToken);
+
+// client.messages
+//       .create({
+//          from: 'whatsapp:+14155238886',
+//          body: 'Hello, there!',
+//          to: 'whatsapp:+919880050970'
+//        })
+//       .then(message => console.log(message.sid));
